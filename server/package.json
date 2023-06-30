@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "npx ts-node-esm --experimental-specifier-resolution=node server.ts"
+  },
+  "dependencies": {
+    "@hathora/hathora-cloud-sdk": "^0.0.3",
+    "@hathora/server-sdk": "^1.0.0",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.12",
+    "ts-node": "^10.9.1"
+  }
+}
