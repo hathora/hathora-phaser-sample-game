@@ -13,7 +13,7 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
-    "hathora-phaser": "^0.0.2",
+    "hathora-phaser": "^0.0.3",
     "phaser": "^3.55.2"
   }
 }
