@@ -34,7 +34,7 @@ class TitleScene extends Scene {
     this.add.haRegionSelect(1280 / 2, 128);
 
     // @ts-ignore
-    this.add.haCreateGameButton(1280 / 2, 192, 'Create Gaemu', true);
+    this.add.haCreateGameButton(1280 / 2, 192);
 
     // @ts-ignore
     this.add.haJoinPrivateInput(1280 / 2, 256);
