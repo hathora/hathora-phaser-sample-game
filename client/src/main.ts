@@ -20,7 +20,7 @@ class TitleScene extends Scene {
         console.warn(error);
       },
       true,
-      'private'
+      'public'
     );
 
     // this.add.haVisibilityToggle(1280 / 2, 64);
