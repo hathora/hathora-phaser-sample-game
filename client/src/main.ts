@@ -1,6 +1,5 @@
 import './style.css'
 import { Scene, Game, WEBGL, Scale } from 'phaser';
-
 // @ts-ignore
 import { HathoraPhaser, HathoraConnection } from 'hathora-phaser';
 
@@ -10,10 +9,6 @@ class TitleScene extends Scene {
   }
 
   async create() {
-    // @ts-ignore
-    // await this.HathoraPhaser.config('app-1288369e-9df0-4432-9439-9e0b59023f07');
-
-    // @ts-ignore
     this.HathoraPhaser.initialize(
       'app-1288369e-9df0-4432-9439-9e0b59023f07',
       (connection: HathoraConnection) => {
@@ -24,22 +19,18 @@ class TitleScene extends Scene {
       (error: any) => {
         console.warn(error);
       },
-      true
+      true,
+      'private'
     );
 
-    // @ts-ignore
-    this.add.haVisibilityToggle(1280 / 2, 64);
+    // this.add.haVisibilityToggle(1280 / 2, 64);
 
-    // @ts-ignore
     this.add.haRegionSelect(1280 / 2, 128);
 
-    // @ts-ignore
     this.add.haCreateGameButton(1280 / 2, 192);
-
-    // @ts-ignore
+    
     this.add.haJoinPrivateInput(1280 / 2, 256);
 
-    // @ts-ignore
     this.add.haJoinPublicList(1280 / 2, 455, 300, 280);
   }
 }

@@ -1,3 +1,5 @@
 #!/bin/sh
 
-tar --exclude="node_modules" -czvf deploy.tgz server
+cd server
+tar --exclude="node_modules" -czvf ../deploy.tgz .
+cd ..
