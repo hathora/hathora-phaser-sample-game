@@ -1,5 +1,3 @@
 #!/bin/sh
 
-cd server
-tar --exclude="node_modules" -czvf ../deploy.tgz .
-cd ..
+tar --exclude="node_modules" -czvf ./deploy.tgz Dockerfile server common
