@@ -13,7 +13,7 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
-    "hathora-phaser": "file:../../hathora-phaser",
+    "hathora-phaser": "^0.0.8",
     "interpolation-buffer": "^1.2.5",
     "phaser": "^3.55.2"
   }
