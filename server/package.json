@@ -6,10 +6,12 @@
   "dependencies": {
     "@hathora/hathora-cloud-sdk": "^0.0.3",
     "@hathora/server-sdk": "^1.0.0",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.16.12",
+    "@types/uuid": "^9.0.2",
     "ts-node": "^10.9.1"
   }
 }
