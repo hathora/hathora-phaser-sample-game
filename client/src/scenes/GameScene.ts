@@ -62,7 +62,7 @@ export class GameScene extends Scene {
         }
         else if (msg.event === 'PONG') {
           const ping = Math.round(Date.now() - sentTime);
-          sentTime = msg.ts;
+          sentTime = Date.now();
 
           pingText.setText(`${ping}ms`);
 
