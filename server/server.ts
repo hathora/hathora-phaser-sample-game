@@ -133,6 +133,12 @@ const store: Application = {
         player.isFlipped = (player.velocity.x === 1);
       }
     }
+    else if (message.event === 'PING') {
+      server.broadcastMessage(roomId, Buffer.from(JSON.stringify({
+        event: 'PONG',
+        ts: Date.now()
+      }), "utf8"));
+    }
   },
 };
 

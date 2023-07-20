@@ -49,6 +49,7 @@ export class GameScene extends Scene {
       ).setOrigin(1, 0).setDepth(100);
 
       let sentTime = Date.now();
+      let sentInitPing = false;
 
       this.connection.onMessageJson((msg: any) => {
         if (msg.event === 'UPDATE') {
@@ -56,12 +57,21 @@ export class GameScene extends Scene {
             this.stateBuffer = new InterpolationBuffer(msg.game, 50, lerp);
           }
           else {
-            const ping = Math.round(msg.ts - sentTime);
-            sentTime = msg.ts;
-
             this.stateBuffer.enqueue(msg.game, [], msg.ts);
-            pingText.setText(`${ping}ms`);
           }
+        }
+        else if (msg.event === 'PONG') {
+          const ping = Math.round(Date.now() - sentTime);
+          sentTime = msg.ts;
+
+          pingText.setText(`${ping}ms`);
+
+          this.connection.writeJson({ event: 'PING' });
+        }
+
+        if (!sentInitPing) {
+          this.connection.writeJson({ event: 'PING' })
+          sentInitPing = true;
         }
       });
 
