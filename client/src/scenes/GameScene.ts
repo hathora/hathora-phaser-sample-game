@@ -36,13 +36,31 @@ export class GameScene extends Scene {
         }
       ).setOrigin(0.5, 0).setDepth(100);
 
+      const pingText = this.add.text(
+        width - 20,
+        20,
+        '',
+        {
+          color: '#000',
+          fontFamily: 'monospace',
+          align: 'right',
+          fontSize: '22px'
+        }
+      ).setOrigin(1, 0).setDepth(100);
+
+      let sentTime = Date.now();
+
       this.connection.onMessageJson((msg: any) => {
         if (msg.event === 'UPDATE') {
           if (this.stateBuffer === undefined) {
             this.stateBuffer = new InterpolationBuffer(msg.game, 50, lerp);
           }
           else {
+            const ping = Math.round(msg.ts - sentTime);
+            sentTime = msg.ts;
+
             this.stateBuffer.enqueue(msg.game, [], msg.ts);
+            pingText.setText(`${ping}ms`);
           }
         }
       });
