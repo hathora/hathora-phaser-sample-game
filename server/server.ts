@@ -1,5 +1,6 @@
-import { UserId, RoomId, Application, startServer, verifyJwt, Server } from "@hathora/server-sdk";
-import * as dotenv from "dotenv";
+import { UserId, RoomId, Application, startServer, verifyJwt, Server } from '@hathora/server-sdk';
+import { LobbyV2Api } from "@hathora/hathora-cloud-sdk";
+import * as dotenv from 'dotenv';
 import { Avatar, FoodType, GameState } from '../common/types';
 import { v4 as uuid } from 'uuid';
 
@@ -29,6 +30,7 @@ function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const lobbyClient = new LobbyV2Api();
 const rooms = new Map<RoomId, GameState>();
 let server: Server;
 
@@ -79,6 +81,8 @@ const store: Application = {
         isFlipped: false
       });
 
+      await updateLobbyState(roomId, game);
+
       console.log(`New player joined (${userId})`);
     }
   },
@@ -97,6 +101,8 @@ const store: Application = {
     if (idx >= 0) {
       game.players.splice(idx, 1);
     }
+
+    await updateLobbyState(roomId, game);
 
     // Remove the game room if empty
     if (game.players.length === 0) {
@@ -147,6 +153,24 @@ function hitTest(x1: number, y1: number, x2: number, y2: number) {
   const hh = objHeight / 2;
 
   return (x1 + hw >= x2 - hw && x1 - hw <= x2 + hw && y1 + hh >= y2 - hh && y1 - hh <= y2 + hh);
+}
+
+function updateLobbyState(roomId: RoomId, game: GameState) {
+  return lobbyClient.setLobbyState(
+    process.env.HATHORA_APP_ID!,
+    roomId,
+    {
+      state: {
+        totalPlayers: game.players.length
+      }
+    },
+    {
+      headers: {
+        'Authorization': `Bearer ${process.env.HATHORA_TOKEN}`,
+        'Content-Type': 'application/json'
+      }
+    }
+  );
 }
 
 // Load our environment variables into process.env
