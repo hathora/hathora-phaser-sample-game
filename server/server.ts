@@ -134,7 +134,7 @@ const store: Application = {
       }
     }
     else if (message.event === 'PING') {
-      server.broadcastMessage(roomId, Buffer.from(JSON.stringify({
+      server.sendMessage(roomId, userId, Buffer.from(JSON.stringify({
         event: 'PONG',
         ts: Date.now()
       }), "utf8"));
