@@ -115,6 +115,12 @@ export class GameScene extends Scene {
       this.input.keyboard.addListener('keydown', keyboardHandler);
       this.input.keyboard.addListener('keyup', keyboardHandler);
 
+      // Bugfix to reset controls when user blurs the game
+      window.addEventListener('blur', () => {
+        const direction = { x: 0, y: 0 };
+        this.connection.writeJson({ event: 'PLAYER_MOVE', direction });
+      });
+
       this.add.image(0, 0, 'bg').setOrigin(0, 0);
     }
     else {
