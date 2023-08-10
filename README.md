@@ -1,6 +1,6 @@
 ![A screenshot of the game's title screen.](https://github.com/saricden/hathora-phaser-test/assets/7004280/a97e5280-d9c9-47c8-9457-6859427ad121)
 
-# Hathora Phaser Test Game
+# Hathora Phaser Sample Game - Fast Food
 
 A demo game utilizing the [Phaser 3](https://github.com/photonstorm/phaser) game engine and the [Hathora Phaser 3 Plugin](https://github.com/hathora/hathora-phaser) to integrate multiplayer lobby components.
 
