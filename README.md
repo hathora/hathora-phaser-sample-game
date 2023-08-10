@@ -2,7 +2,9 @@
 
 # Hathora Phaser Sample Game - Fast Food
 
-A demo game utilizing the [Phaser 3](https://github.com/photonstorm/phaser) game engine and the [Hathora Phaser 3 Plugin](https://github.com/hathora/hathora-phaser) to integrate multiplayer lobby components.
+A demo game utilizing the [Phaser 3](https://github.com/photonstorm/phaser) game engine and the [Hathora Phaser 3 Plugin](https://github.com/hathora/hathora-phaser) to integrate multiplayer lobby components for game servers deployed on Hathora Cloud.
+
+To learn more about Hathora Cloud, check out: [Hathora Cloud Documentation](https://hathora.dev/docs)
 
 ## Live demo
 
