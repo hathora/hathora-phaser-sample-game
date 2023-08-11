@@ -1,4 +1,4 @@
-![A screenshot of the game's title screen.](https://github.com/saricden/hathora-phaser-test/assets/7004280/a97e5280-d9c9-47c8-9457-6859427ad121)
+![A screenshot of the game's title screen.](https://github.com/hathora/hathora-phaser-sample-game/assets/7004280/d2896011-8a7e-49c0-b3e2-181123deb51f)
 
 # Hathora Phaser Sample Game - Fast Food
 
