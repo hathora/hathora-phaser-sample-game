@@ -174,7 +174,7 @@ function updateLobbyState(roomId: RoomId, game: GameState) {
 }
 
 // Load our environment variables into process.env
-dotenv.config();
+dotenv.config({ path: '../.env' });
 if (process.env.HATHORA_APP_SECRET === undefined) {
   throw new Error("HATHORA_APP_SECRET not set");
 }
