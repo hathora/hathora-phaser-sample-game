@@ -67,4 +67,6 @@ Then, open a second terminal tab and from the same directory (the project root),
 npm run server
 ```
 
+Please note that for the server, you should be running Node 18 (see [nvm](https://github.com/nvm-sh/nvm) for an easy way to switch versions).
+
 You should now have your own copy of the game running at `http://localhost:5173/`! Woohoo! 🥳
